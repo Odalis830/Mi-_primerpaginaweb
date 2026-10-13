@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postres 116</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: white;
+            padding: 15px 20px;
+        }
+
+        header h2 {
+            margin: 0 0 12px;
+            font-family: Georgia, serif;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-right: 5px;
+            border: none;
+            background: #ead9e8;
+            color: #663b64;
+            cursor: pointer;
+        }
+
+        button:hover,
+        button.activo {
+            background: #a64d75;
+            color: white;
+        }
+
+        .contenedor {
+            display: flex;
+            min-height: 500px;
+        }
+
+        aside {
+            width: 270px;
+            flex-shrink: 0;
+            background: white;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        aside h4 {
+            color: #d74778;
+        }
+
+        aside img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        aside p {
+            padding: 10px 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        main {
+            flex: 1;
+            padding: 40px 25px;
+            background: #dff1fc;
+        }
+
+        article {
+            max-width: 620px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 12px #c5dce8;
+        }
+
+        article img {
+            width: 80%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        article h2 {
+            color: #9d4264;
+            font-family: Georgia, serif;
+        }
+
+        article p {
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: #713c59;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 650px) {
+            .contenedor {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+            }
+
+            main {
+                padding: 20px 12px;
+            }
+
+            article img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Postres 116</h2>
+
+        <button class="activo" onclick="cambiar('inicio', this)">
+            Inicio
+        </button>
+
+        <button onclick="cambiar('postres', this)">
+            Postres
+        </button>
+
+        <button onclick="cambiar('historia', this)">
+            Historia
+        </button>
+    </header>
+
+    <div class="contenedor">
+
+        <aside>
+            <h4>¡Endulza tu felicidad!</h4>
+            <h3>Sweet Desserts</h3>
+
+            <img
+                src="c:\Users\Admin\Pictures\Screenshots\Captura de pantalla 2026-10-13 130618.png"
+                alt="Pastel de chocolate">
+
+            <p>
+                Descubre deliciosos postres preparados
+                para endulzar tus momentos especiales.
+            </p>
+        </aside>
+
+        <main>
+            <article>
+                <img
+                    src="c:\Users\Admin\Pictures\Screenshots\Captura de pantalla 2026-10-13 130630.png"
+                    alt="Pastel con fresas">
+
+                <h2 id="titulo">
+                    Bienvenidos al mundo de los postres
+                </h2>
+
+                <p id="texto">
+                    Los postres son una deliciosa manera
+                    de celebrar momentos especiales. Existen
+                    pasteles, cupcakes, galletas, brownies
+                    y tartas de frutas.
+                </p>
+
+                <p id="texto2">
+                    En Postres 116 compartimos la creatividad,
+                    el sabor y la alegría de la repostería.
+                </p>
+            </article>
+        </main>
+
+    </div>
+
+    <footer>
+        <p>Postres 116 | Un dulce momento para ti</p>
+        <p>Proyecto escolar de diseño web</p>
+    </footer>
+
+    <script>
+        function cambiar(seccion, boton) {
+            const titulo = document.getElementById("titulo");
+            const texto = document.getElementById("texto");
+            const texto2 = document.getElementById("texto2");
+
+            document.querySelectorAll("header button").forEach(b => {
+                b.classList.remove("activo");
+            });
+
+            boton.classList.add("activo");
+
+            if (seccion === "inicio") {
+                titulo.textContent =
+                    "Bienvenidos al mundo de los postres";
+                texto.textContent =
+                    "Los postres son una deliciosa manera de celebrar momentos especiales. Existen pasteles, cupcakes, galletas, brownies y tartas.";
+                texto2.textContent =
+                    "En Postres 116 compartimos la creatividad, el sabor y la alegría de la repostería.";
+            }
+
+            if (seccion === "postres") {
+                titulo.textContent = "Nuestros deliciosos postres";
+                texto.textContent =
+                    "Tenemos pasteles de chocolate, cupcakes, galletas, brownies y tartas de frutas para todos los gustos.";
+                texto2.textContent =
+                    "Cada postre es ideal para cumpleaños, reuniones y ocasiones especiales.";
+            }
+
+            if (seccion === "historia") {
+                titulo.textContent = "Historia de la repostería";
+                texto.textContent =
+                    "La repostería es el arte de preparar alimentos dulces con ingredientes como harina, azúcar, huevos, chocolate y frutas.";
+                texto2.textContent =
+                    "Con el paso del tiempo, las recetas tradicionales han evolucionado y creado nuevos sabores en todo el mundo.";
+            }
+        }
+    </script>
+
+</body>
+</html>
